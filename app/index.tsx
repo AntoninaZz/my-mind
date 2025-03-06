@@ -1,36 +1,26 @@
-import { Text, View, StyleSheet } from "react-native";
+import { Text, Image, TouchableOpacity, SafeAreaView } from "react-native";
 import { LinearGradient } from 'expo-linear-gradient';
-import { Link } from 'expo-router';
+import { Stack, useRouter } from 'expo-router';
+import styles from '../styles/style';
 
 export default function Index() {
-  return (
-    <LinearGradient
-      style={styles.container}
-      colors={['#43BCF0', '#541896', "#711280"]}
-      start={{ x: 1.2, y: 0.8 }}
-      end={{ x: 1, y: 1 }}
+  const router = useRouter();
 
-    >
-      <Text>Home screen</Text>
-      <Link href="/level">
-        Go to About screen
-      </Link>
-    </LinearGradient>
+  return (
+    <SafeAreaView style={{flex: 1}}>
+      <LinearGradient
+        style={styles.container}
+        colors={['#43BCF0', '#541896', "#711280"]}
+        start={{ x: 1.2, y: 0.8 }}
+        end={{ x: 1, y: 1 }}
+
+      >
+        <Stack.Screen options={{ headerShown: false, }} />
+        <Image source={require('../assets/images/icon.png')} style={styles.img} />
+        <TouchableOpacity style={styles.button} onPress={() => router.push({ pathname: `/level` })}>
+          <Text style={styles.btnLabel}>Start</Text>
+        </TouchableOpacity>
+      </LinearGradient>
+    </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    // background: linear-gradient(191.46deg, #43BCF0 -32.01%, #541896 55.91%, #711280 116.41%);
-
-  },
-  background: {
-    flex: 1,
-    position: 'absolute',
-    left: 0,
-    top: 0,
-  },
-});
