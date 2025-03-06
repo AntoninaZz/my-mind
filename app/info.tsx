@@ -34,7 +34,7 @@ export default function InfoScreen() {
             }} />
             <LinearGradient
                 style={[styles.container, styles.info]}
-                colors={['#43BCF0', '#541896', "#711280"]}
+                colors={['#471280', "#43BCF0"]}
                 start={{ x: 1.2, y: 0.8 }}
                 end={{ x: 1, y: 1 }} >
                 <Text style={[styles.text, styles.btnLabel, styles.h1]}>Rules</Text>
