@@ -5,7 +5,7 @@ import styles from '../styles/style';
 
 import { LEVEL_IMAGES } from '@/constants/images';
 
-export default function HomeScreen() {
+export default function LevelScreen() {
   const router = useRouter();
 
   let levels = ['/', '/', '/'];

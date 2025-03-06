@@ -16,7 +16,7 @@ export default function Index() {
         <Stack.Screen options={{ headerShown: false, }} />
         <Image source={require('../assets/images/icon.png')} style={styles.img} />
         <TouchableOpacity style={styles.button} onPress={() => router.push({ pathname: `/level` })}>
-          <Text style={styles.btnLabel}>Start</Text>
+          <Text style={[styles.text, styles.btnLabel]}>Start</Text>
         </TouchableOpacity>
       </LinearGradient>
     </SafeAreaView>

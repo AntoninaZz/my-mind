@@ -19,8 +19,6 @@ const styles = StyleSheet.create({
         backgroundColor: "#6EBCF7",
     },
     btnLabel: {
-        color: 'white',
-        fontWeight: 400,
         fontSize: 24,
         textAlign: 'center',
         textTransform: 'uppercase',
@@ -43,6 +41,18 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',
+        padding: 25,
+        alignContent: 'flex-start',
+    },
+    h1: {
+        fontWeight: 600,
+        fontSize: 22,
+        marginBottom: 30,
+    },
+    text: {
+        fontSize: 18,
+        color: 'white',
+        fontWeight: 400,
     }
 });
 
