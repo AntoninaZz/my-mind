@@ -41,8 +41,6 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',
-        padding: 25,
-        alignContent: 'flex-start',
     },
     h1: {
         fontWeight: 600,
@@ -53,6 +51,11 @@ const styles = StyleSheet.create({
         fontSize: 18,
         color: 'white',
         fontWeight: 400,
+    },
+    info: {
+        display: 'flex',
+        padding: 25,
+        justifyContent: 'flex-start',
     }
 });
 

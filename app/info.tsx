@@ -33,7 +33,7 @@ export default function InfoScreen() {
                 headerBackTitle: '',
             }} />
             <LinearGradient
-                style={[styles.container, styles.levels]}
+                style={[styles.container, styles.info]}
                 colors={['#43BCF0', '#541896', "#711280"]}
                 start={{ x: 1.2, y: 0.8 }}
                 end={{ x: 1, y: 1 }} >
