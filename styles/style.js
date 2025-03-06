@@ -25,6 +25,24 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         textTransform: 'uppercase',
         fontFamily: 'Baloo2_400Regular',
+    },
+    header: {
+        width: '100vw',
+    },
+    headerImg: {
+        margin: 0,
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+    },
+    info: {
+        padding: 25,
+    },
+    levels: {
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
     }
 });
 

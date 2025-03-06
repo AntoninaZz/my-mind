@@ -12,9 +12,7 @@ export default function Index() {
         style={styles.container}
         colors={['#43BCF0', '#541896', "#711280"]}
         start={{ x: 1.2, y: 0.8 }}
-        end={{ x: 1, y: 1 }}
-
-      >
+        end={{ x: 1, y: 1 }} >
         <Stack.Screen options={{ headerShown: false, }} />
         <Image source={require('../assets/images/icon.png')} style={styles.img} />
         <TouchableOpacity style={styles.button} onPress={() => router.push({ pathname: `/level` })}>
