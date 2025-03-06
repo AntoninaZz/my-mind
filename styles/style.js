@@ -41,6 +41,8 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',
+        width: '100vw',
+        height: '100vh',
     },
     h1: {
         fontWeight: 600,

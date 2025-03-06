@@ -1,4 +1,4 @@
-import { Text, SafeAreaView, Image, TouchableOpacity } from 'react-native';
+import { Text, SafeAreaView, Image, TouchableOpacity, ImageBackground } from 'react-native';
 import { Stack, useRouter } from 'expo-router';
 import { LinearGradient } from 'expo-linear-gradient';
 import styles from '../styles/style';
@@ -36,17 +36,20 @@ export default function LevelScreen() {
         headerBackVisible: false,
         headerBackTitle: '',
       }} />
-      <LinearGradient
+      <ImageBackground source={require('@/assets/images/bg.png')} resizeMode="cover" style={[styles.container, styles.levels]} >
+        {LEVEL_IMAGES.map((level, i) => (
+          <TouchableOpacity key={i} onPress={() => router.push({ pathname: '/' })}>
+            <Image source={level} />
+          </TouchableOpacity>
+        ))}
+      </ImageBackground>
+      {/* <LinearGradient
         style={[styles.container, styles.levels]}
         colors={['#43BCF0', '#541896', "#711280"]}
         start={{ x: 1.2, y: 0.8 }}
         end={{ x: 1, y: 1 }} >
-        {LEVEL_IMAGES.map((level, i) => (
-            <TouchableOpacity key={i} onPress={() => router.push({ pathname: '/' })}>
-              <Image source={level} />
-            </TouchableOpacity>
-        ))}
-      </LinearGradient>
+
+      </LinearGradient> */}
     </SafeAreaView>
   );
 }
