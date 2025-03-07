@@ -8,3 +8,8 @@ export const LEVEL_IMAGES = [
     require('@/assets/images/level7.png'),
     require('@/assets/images/level8.png'),
 ]
+
+export const GAME1_IMAGES = [
+    require('@/assets/images/tile1.png'),
+    require('@/assets/images/tile2.png'),
+]

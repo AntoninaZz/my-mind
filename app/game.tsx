@@ -1,13 +1,39 @@
-import { Text, SafeAreaView, Image, TouchableOpacity } from 'react-native';
+import { SafeAreaView, ImageBackground, TouchableOpacity, Image, Text, Animated, useAnimatedValue } from "react-native";
 import { Stack, useRouter } from 'expo-router';
 import { LinearGradient } from 'expo-linear-gradient';
+import React, { useState } from 'react';
 import styles from '../styles/style';
 
-export default function InfoScreen() {
+import GameTile from '@/components/gameTite';
+import { GAME1_IMAGES } from "@/constants/images";
+import { makeGame } from '@/makeGame'
+
+const Game = () => {
     const router = useRouter();
+    const rotateAnim = useAnimatedValue(1); //scaleX
+    const zIndexAnim = useAnimatedValue(-1); //zIndex
+    const toggleAnimation = () => {
+        Animated.sequence([
+            Animated.timing(rotateAnim, {
+                toValue: 0,
+                duration: 250,
+                useNativeDriver: true,
+            }),
+            Animated.timing(zIndexAnim, {
+                toValue: 0,
+                duration: 0,
+                useNativeDriver: true,
+            }),
+            Animated.timing(rotateAnim, {
+                toValue: 1,
+                duration: 250,
+                useNativeDriver: true,
+            })
+        ]).start();
+    }
 
     return (
-        <SafeAreaView style={{ flex: 1 }}>
+        <SafeAreaView style={styles.container}>
             <Stack.Screen options={{
                 headerTitleStyle: { fontWeight: 'bold', fontFamily: 'Baloo2_400Regular', },
                 headerShadowVisible: false,
@@ -32,15 +58,11 @@ export default function InfoScreen() {
                 headerBackVisible: false,
                 headerBackTitle: '',
             }} />
-            <LinearGradient
-                style={[styles.container, styles.info]}
-                colors={['#471280', "#43BCF0"]}
-                start={{ x: 1.8, y: 0 }}
-                end={{ x: 1, y: 1 }}
-                locations={[0.1, 0.8, 1]} >
-                <Text style={[styles.text, styles.btnLabel, styles.h1]}>Rules</Text>
-                <Text style={styles.text}>Lorem ipsum dolor sit amet consectetur. A ut sit pellentesque vel. Sit tincidunt praesent adipiscing in magna erat enim nec urna. Aliquet volutpat id arcu fames varius mus ultricies mollis. Adipiscing blandit cursus faucibus vel ullamcorper dignissim at...</Text>
-            </LinearGradient>
+            <ImageBackground source={require('@/assets/images/bg1.png')} resizeMode="cover" style={[styles.container, styles.levels]} >
+                {makeGame(GAME1_IMAGES).map((img, i) => (<GameTile src={img} key={i} />))}
+            </ImageBackground>
         </SafeAreaView>
     );
 }
+
+export default Game;

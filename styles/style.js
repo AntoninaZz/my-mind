@@ -46,7 +46,40 @@ const styles = StyleSheet.create({
         display: 'flex',
         padding: 25,
         justifyContent: 'flex-start',
-    }
+    },
+    headerIcon: {
+        width: 62,
+        height: 39.18,
+        resizeMode: 'contain',
+    },
+    infoIcon: {
+        widht: 30,
+        height: 30,
+        resizeMode: 'contain',
+        marginRight: -25,
+    },
+    backIcon: {
+        marginRight: 0,
+        marginLeft: -25,
+    },
+    image: {
+        resizeMode: 'contain',
+    },
+    tile: {
+        width: 130,
+        height: 130,
+        margin: 10,
+    },
+    tileBig: {
+        width: 150,
+        height: 150,
+        margin: 7.5,
+    },
+    tileIn: {
+        position: 'absolute',
+        left: 0,
+        top: 0,
+    },
 });
 
 export default styles;
