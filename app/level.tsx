@@ -20,7 +20,7 @@ export default function LevelScreen() {
           <LinearGradient
             style={styles.container}
             colors={['#43BCF0', "#711280"]}
-            start={{ x: 1, y: 0.8 }}
+            start={{ x: 1, y: 0 }}
             end={{ x: 1, y: 1 }} />
         ),
         headerRight: () => (
@@ -43,13 +43,6 @@ export default function LevelScreen() {
           </TouchableOpacity>
         ))}
       </ImageBackground>
-      {/* <LinearGradient
-        style={[styles.container, styles.levels]}
-        colors={['#43BCF0', '#541896', "#711280"]}
-        start={{ x: 1.2, y: 0.8 }}
-        end={{ x: 1, y: 1 }} >
-
-      </LinearGradient> */}
     </SafeAreaView>
   );
 }
