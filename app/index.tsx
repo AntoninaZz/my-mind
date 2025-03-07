@@ -11,8 +11,9 @@ export default function Index() {
       <LinearGradient
         style={styles.container}
         colors={['#43BCF0', '#541896', "#711280"]}
-        start={{ x: 1.2, y: 0.8 }}
-        end={{ x: 1, y: 1 }} >
+        start={{ x: 1.8, y: 0.2 }}
+        end={{ x: 1, y: 1 }} 
+        locations={[0.1, 0.56, 0.8]}>
         <Stack.Screen options={{ headerShown: false, }} />
         <Image source={require('../assets/images/icon.png')} style={styles.img} />
         <TouchableOpacity style={styles.button} onPress={() => router.push({ pathname: `/level` })}>
@@ -22,3 +23,4 @@ export default function Index() {
     </SafeAreaView>
   );
 }
+//background: linear-gradient(191.46deg, #43BCF0 -32.01%, #541896 55.91%, #711280 116.41%);
