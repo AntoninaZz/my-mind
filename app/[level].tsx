@@ -51,7 +51,7 @@ const Game = () => {
                         end={{ x: 1, y: 1 }} />
                 ),
                 headerLeft: () => (
-                    <TouchableOpacity onPressOut={() => router.replace({ pathname: `/level` })}>
+                    <TouchableOpacity onPressOut={() => router.replace({ pathname: `/levels` })}>
                         <Image source={require('../assets/images/back.png')} style={[styles.infoIcon, styles.backIcon]} />
                     </TouchableOpacity>
                 ),

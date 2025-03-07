@@ -36,7 +36,7 @@ export default function LevelScreen() {
       }} />
       <ImageBackground source={require('@/assets/images/bg.png')} resizeMode="cover" style={[styles.container, styles.levels]} >
         {LEVEL_IMAGES.map((level, i) => (
-          <TouchableOpacity key={i} onPress={() => router.push({ pathname: '/game' })} >
+          <TouchableOpacity key={i} onPress={() => router.push({ pathname: '/[level]', params: { level: i }, })} >
             <Image source={level} style={[styles.image, styles.tile]} />
           </TouchableOpacity>
         ))}
