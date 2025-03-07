@@ -26,10 +26,11 @@ const styles = StyleSheet.create({
     },
     levels: {
         display: 'flex',
+        flex: 1,
         flexDirection: 'row',
         flexWrap: 'wrap',
-        width: '100vw',
-        height: '100vh',
+        justifyContent: 'space-evenly',
+        alignContent: 'space-evenly',
     },
     h1: {
         fontWeight: 600,
