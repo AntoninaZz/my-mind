@@ -15,7 +15,12 @@ export default function LevelScreen() {
       <Stack.Screen options={{
         headerTitleStyle: { fontWeight: 'bold', fontFamily: 'Baloo2_400Regular', },
         headerShadowVisible: false,
-        headerTitle: '',
+        headerTitle: () => (
+          <TouchableOpacity style={styles.header} onPressOut={() => router.replace({ pathname: `/` })}>
+            <Image source={require('../assets/images/favicon.png')} />
+          </TouchableOpacity>
+        ),
+        headerTitleAlign: 'center',
         headerBackground: () => (
           <LinearGradient
             style={styles.container}
@@ -24,13 +29,8 @@ export default function LevelScreen() {
             end={{ x: 1, y: 1 }} />
         ),
         headerRight: () => (
-          <TouchableOpacity style={styles.info} onPress={() => router.push({ pathname: `/info` })}>
+          <TouchableOpacity onPressOut={() => router.push({ pathname: `/info` })}>
             <Image source={require('../assets/images/info.png')} />
-          </TouchableOpacity>
-        ),
-        headerLeft: () => (
-          <TouchableOpacity style={styles.header} onPress={() => router.replace({ pathname: `/` })}>
-            <Image source={require('../assets/images/favicon.png')} style={styles.headerImg} />
           </TouchableOpacity>
         ),
         headerBackVisible: false,

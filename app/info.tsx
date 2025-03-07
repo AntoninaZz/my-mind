@@ -11,21 +11,21 @@ export default function InfoScreen() {
             <Stack.Screen options={{
                 headerTitleStyle: { fontWeight: 'bold', fontFamily: 'Baloo2_400Regular', },
                 headerShadowVisible: false,
-                headerTitle: '',
+                headerTitle: () => (
+                    <TouchableOpacity style={styles.header} onPressOut={() => router.replace({ pathname: `/` })}>
+                        <Image source={require('../assets/images/favicon.png')} />
+                    </TouchableOpacity>
+                ),
+                headerTitleAlign: 'center',
                 headerBackground: () => (
                     <LinearGradient
                         style={styles.container}
                         colors={['#43BCF0', "#711280"]}
-                        start={{ x: 1, y: 0.8 }}
+                        start={{ x: 1, y: 0 }}
                         end={{ x: 1, y: 1 }} />
                 ),
-                headerRight: () => (
-                    <TouchableOpacity style={styles.header} onPress={() => router.replace({ pathname: `/` })}>
-                        <Image source={require('../assets/images/favicon.png')} style={styles.headerImg} />
-                    </TouchableOpacity>
-                ),
                 headerLeft: () => (
-                    <TouchableOpacity style={styles.info} onPress={() => router.push({ pathname: `/level` })}>
+                    <TouchableOpacity onPressOut={() => router.replace({ pathname: `/level` })}>
                         <Image source={require('../assets/images/back.png')} />
                     </TouchableOpacity>
                 ),
@@ -35,8 +35,9 @@ export default function InfoScreen() {
             <LinearGradient
                 style={[styles.container, styles.info]}
                 colors={['#471280', "#43BCF0"]}
-                start={{ x: 1.2, y: 0.8 }}
-                end={{ x: 1, y: 1 }} >
+                start={{ x: 1.8, y: 0 }}
+                end={{ x: 1, y: 1 }}
+                locations={[0.1, 0.8, 1]} >
                 <Text style={[styles.text, styles.btnLabel, styles.h1]}>Rules</Text>
                 <Text style={[styles.text]}>Lorem ipsum dolor sit amet consectetur. A ut sit pellentesque vel. Sit tincidunt praesent adipiscing in magna erat enim nec urna. Aliquet volutpat id arcu fames varius mus ultricies mollis. Adipiscing blandit cursus faucibus vel ullamcorper dignissim at...</Text>
             </LinearGradient>
