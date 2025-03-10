@@ -1,12 +1,14 @@
-import { Pressable, Animated, useAnimatedValue, Text, Alert } from 'react-native';
-import React, { useEffect } from 'react';
+import { Pressable, Animated, useAnimatedValue, } from 'react-native';
+import React, { useEffect, useContext } from 'react';
 import styles from '../styles/style';
 import '@/global';
+import { LevelContext } from '@/app-context/level-context';
 
 const GameTile = ({ src, grid }) => {
     const size = grid < 8 ? styles.tileBig : grid < 12 ? styles.tileMedium : styles.tileSmall;
     const rotateAnim = useAnimatedValue(1); //scaleX
     const zIndexAnim = useAnimatedValue(-1); //zIndex
+    const { gameResult, updateState } = useContext(LevelContext);
 
     useEffect(() => {
         previousTile = undefined;
@@ -79,11 +81,11 @@ const GameTile = ({ src, grid }) => {
             case src:
                 previousTile = undefined;
                 if(counter == grid) {
-                    win = true;
+                    updateState({win: true});
                 }
                 break;
             default:
-                lose = true;
+                updateState({lose: true});
                 break;
         }
     }

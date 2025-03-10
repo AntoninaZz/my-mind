@@ -1,5 +1,6 @@
 import { Stack } from "expo-router";
 import AppLoading from 'expo-app-loading';
+import { LevelContextProvider } from '@/app-context/level-context-provider'
 import {
   useFonts,
   Baloo2_400Regular,
@@ -19,11 +20,11 @@ export default function RootLayout() {
   if (!fontsLoaded) {
     return <AppLoading />;
   } else {
-    return (
+    return (<LevelContextProvider>
       <Stack>
         <Stack.Screen name="index" options={{ title: 'Home' }} />
         <Stack.Screen name="level" options={{ title: 'Level' }} />
-      </Stack>
+      </Stack></LevelContextProvider>
     );
   }
 }

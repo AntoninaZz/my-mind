@@ -133,6 +133,14 @@ const styles = StyleSheet.create({
         flexDirection:'row',
         justifyContent: 'space-between',
         paddingHorizontal: 60,
+    },
+    score: {
+        paddingVertical: 2,
+        paddingHorizontal: 10,
+        borderRadius: 71,
+    },
+    scoreText: {
+        fontSize: 18,
     }
 });
 
