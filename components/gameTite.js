@@ -1,13 +1,16 @@
-import { Pressable, Animated, useAnimatedValue, Text } from 'react-native';
+import { Pressable, Animated, useAnimatedValue, Text, Alert } from 'react-native';
 import React, { useEffect } from 'react';
 import styles from '../styles/style';
+import '@/global'
 
 const GameTile = ({ src, grid }) => {
-    const size = grid < 4 ? styles.tileBig : grid < 6 ? styles.tileMedium : styles.tileSmall;
+    const size = grid < 8 ? styles.tileBig : grid < 12 ? styles.tileMedium : styles.tileSmall;
     const rotateAnim = useAnimatedValue(1); //scaleX
     const zIndexAnim = useAnimatedValue(-1); //zIndex
 
     useEffect(() => {
+        previousTile = undefined;
+        counter = 0;
         Animated.sequence([
             Animated.timing(rotateAnim, {
                 toValue: 0,
@@ -66,13 +69,28 @@ const GameTile = ({ src, grid }) => {
 
     function handlePress(src) {
         toggleAnimation();
+        counter++;
+        switch (previousTile) {
+            case undefined:
+                previousTile = src;
+                break;
+            case src:
+                previousTile = undefined;
+                if(counter == grid) {
+                    Alert.alert('You Won');
+                }
+                break;
+            default:
+                Alert.alert('Game Over');
+                break;
+        }
     }
 
     return (
         <Pressable onPress={() => handlePress(src)}>
             <Animated.Image source={require('@/assets/images/tile.png')} style={[styles.image, size, { transform: [{ scaleX: rotateAnim }, { perspective: 1000 },], }]} />
             <Animated.Image source={src} style={[styles.image, size, styles.tileIn, { transform: [{ scaleX: rotateAnim }, { perspective: 1000 },], zIndex: zIndexAnim, }]} />
-            <Text>{src}</Text>
+            <Text>{previousTile}</Text>
         </Pressable>
     );
 }

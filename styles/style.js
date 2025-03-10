@@ -90,6 +90,13 @@ const styles = StyleSheet.create({
         left: 0,
         top: 0,
     },
+    transparent: {
+        flex: 1,
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        backgroundColor: '#353535',
+    }
 });
 
 export default styles;

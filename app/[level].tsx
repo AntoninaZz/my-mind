@@ -1,4 +1,4 @@
-import { SafeAreaView, ImageBackground, TouchableOpacity, Image, Text, Animated, useAnimatedValue } from "react-native";
+import { SafeAreaView, ImageBackground, TouchableOpacity, Image, View } from "react-native";
 import { Stack, useRouter, useLocalSearchParams } from 'expo-router';
 import { LinearGradient } from 'expo-linear-gradient';
 import React from 'react';
@@ -40,7 +40,8 @@ const LevelScreen = () => {
                 headerBackTitle: '',
             }} />
             <ImageBackground source={IMAGE_BACKGROUND[params.level]} resizeMode="cover" style={[styles.container, styles.levels]} >
-                {makeGame(GAME_IMAGES[params.level]).map((img, i) => (<GameTile src={img} key={i} grid={GAME_IMAGES[params.level].length} />))}
+                {makeGame(GAME_IMAGES[params.level]).map((img, i) => (<GameTile src={img} key={i} grid={GAME_IMAGES[params.level].length * 2} />))}
+                {/* <View style={styles.transparent}></View> */}
             </ImageBackground>
         </SafeAreaView>
     );
