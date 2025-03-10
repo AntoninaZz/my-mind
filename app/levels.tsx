@@ -5,7 +5,7 @@ import styles from '../styles/style';
 
 import { LEVEL_IMAGES } from '@/constants/images';
 
-export default function LevelScreen() {
+export default function LevelsScreen() {
   const router = useRouter();
 
   return (
@@ -14,7 +14,7 @@ export default function LevelScreen() {
         headerTitleStyle: { fontWeight: 'bold', fontFamily: 'Baloo2_400Regular', },
         headerShadowVisible: false,
         headerTitle: () => (
-          <TouchableOpacity onPressOut={() => router.replace({ pathname: `/` })}>
+          <TouchableOpacity onPressOut={() => router.navigate({ pathname: `/` })}>
             <Image source={require('../assets/images/headericon.png')} style={styles.headerIcon} />
           </TouchableOpacity>
         ),
@@ -36,7 +36,7 @@ export default function LevelScreen() {
       }} />
       <ImageBackground source={require('@/assets/images/bg.png')} resizeMode="cover" style={[styles.container, styles.levels]} >
         {LEVEL_IMAGES.map((level, i) => (
-          <TouchableOpacity key={i} onPress={() => router.push({ pathname: '/[level]', params: { level: i }, })} >
+          <TouchableOpacity key={i} onPress={() => router.push({ pathname: '/[level]', params: { level: i }})} >
             <Image source={level} style={[styles.image, styles.tile]} />
           </TouchableOpacity>
         ))}

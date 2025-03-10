@@ -9,7 +9,63 @@ export const LEVEL_IMAGES = [
     require('@/assets/images/level8.png'),
 ]
 
-export const GAME1_IMAGES = [
-    require('@/assets/images/tile1.png'),
-    require('@/assets/images/tile2.png'),
+export const GAME_IMAGES = [
+    [
+        require('@/assets/images/tile1.png'),
+        require('@/assets/images/tile2.png'),
+    ],
+    [
+        require('@/assets/images/tile3.png'),
+        require('@/assets/images/tile4.png'),
+        require('@/assets/images/tile5.png'),
+    ],
+    [
+        require('@/assets/images/tile6.png'),
+        require('@/assets/images/tile7.png'),
+        require('@/assets/images/tile8.png'),
+    ],
+    [
+        require('@/assets/images/tile9.png'),
+        require('@/assets/images/tile10.png'),
+        require('@/assets/images/tile11.png'),
+    ],
+    [
+        require('@/assets/images/tile12.png'),
+        require('@/assets/images/tile13.png'),
+        require('@/assets/images/tile14.png'),
+        require('@/assets/images/tile15.png'),
+    ],
+    [
+        require('@/assets/images/tile16.png'),
+        require('@/assets/images/tile17.png'),
+        require('@/assets/images/tile18.png'),
+        require('@/assets/images/tile19.png'),
+    ],
+    [
+        require('@/assets/images/tile20.png'),
+        require('@/assets/images/tile21.png'),
+        require('@/assets/images/tile22.png'),
+        require('@/assets/images/tile23.png'),
+        require('@/assets/images/tile24.png'),
+        require('@/assets/images/tile25.png'),
+    ],
+    [
+        require('@/assets/images/tile26.png'),
+        require('@/assets/images/tile27.png'),
+        require('@/assets/images/tile28.png'),
+        require('@/assets/images/tile29.png'),
+        require('@/assets/images/tile30.png'),
+        require('@/assets/images/tile31.png'),
+    ],
+]
+
+export const IMAGE_BACKGROUND = [
+    require('@/assets/images/bg1.png'),
+    require('@/assets/images/bg2.png'),
+    require('@/assets/images/bg3.png'),
+    require('@/assets/images/bg4.png'),
+    require('@/assets/images/bg5.png'),
+    require('@/assets/images/bg6.png'),
+    require('@/assets/images/bg7.png'),
+    require('@/assets/images/bg8.png'),
 ]

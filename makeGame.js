@@ -1,19 +1,22 @@
+function getUniqueTile(length, arr) {
+    let tile = Math.floor(Math.random() * length);
+    while (arr.includes(tile)) {
+        tile = Math.floor(Math.random() * length);
+    }
+    return tile;
+}
+
 export function makeGame(arr) {
-    let board = [];
-    switch (arr.length) {
-        case 2:
-            board = new Array(4);
-            let first = Math.floor(Math.random() * 4);
-            let second = Math.floor(Math.random() * 4);
-            while (first == second) {
-                second = Math.floor(Math.random() * 4);
-            }
-            for (let i = 0; i < board.length; i++) {
-                if (i == first || i == second) {
-                    board[i] = arr[0];
-                } else { board[i] = arr[1]; }
-            }
-            break;
+    let boardLength = arr.length * 2;
+    let board = new Array(boardLength);
+    let tiles = [];
+    for (let i = 0; i < boardLength; i++) {
+        let tile = getUniqueTile(boardLength, tiles);
+        tiles.push(tile);
+    }
+    for (let i = 0; i < arr.length; i++) {
+        board[tiles[2 * i]] = arr[i];
+        board[tiles[2 * i + 1]] = arr[i];
     }
     return board;
 }

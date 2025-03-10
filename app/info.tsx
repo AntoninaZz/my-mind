@@ -12,7 +12,7 @@ export default function InfoScreen() {
                 headerTitleStyle: { fontWeight: 'bold', fontFamily: 'Baloo2_400Regular', },
                 headerShadowVisible: false,
                 headerTitle: () => (
-                    <TouchableOpacity onPressOut={() => router.replace({ pathname: `/` })}>
+                    <TouchableOpacity onPressOut={() => router.navigate({ pathname: `/` })}>
                         <Image source={require('../assets/images/headericon.png')} style={styles.headerIcon} />
                     </TouchableOpacity>
                 ),
@@ -25,7 +25,7 @@ export default function InfoScreen() {
                         end={{ x: 1, y: 1 }} />
                 ),
                 headerLeft: () => (
-                    <TouchableOpacity onPressOut={() => router.replace({ pathname: `/levels` })}>
+                    <TouchableOpacity onPressOut={() => router.back()}>
                         <Image source={require('../assets/images/back.png')} style={[styles.infoIcon, styles.backIcon]} />
                     </TouchableOpacity>
                 ),
