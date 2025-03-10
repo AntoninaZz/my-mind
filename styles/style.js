@@ -91,11 +91,48 @@ const styles = StyleSheet.create({
         top: 0,
     },
     transparent: {
-        flex: 1,
         position: 'absolute',
         top: 0,
         left: 0,
-        backgroundColor: '#353535',
+        bottom: 0,
+        right: 0,
+        backgroundColor: 'rgba(53, 53, 53, 0.6)',
+        display: 'flex',
+        justifyContent: 'center',
+        alignContent: 'center',
+        padding: 55,
+    },
+    popup: {
+        borderColor: 'white',
+        borderRadius: 21.07,
+        borderWidth: 3.51,
+        overflow: 'hidden',
+    },
+    banner: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignContent: 'center',
+        paddingVertical: 55,
+        paddingHorizontal: 60,
+    },
+    popupHeader: {
+        borderRadius: 14.04,
+        paddingVertical: 14,
+        paddingHorizontal: 10,
+    },
+    bannerText: {
+        fontSize: 24,
+    },
+    bannerIcon: {
+        height: 40,
+        width: 40,
+        margin: 10,
+        marginLeft: -20,
+    },
+    buttonsContainer: {
+        flexDirection:'row',
+        justifyContent: 'space-between',
+        paddingHorizontal: 60,
     }
 });
 

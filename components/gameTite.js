@@ -1,7 +1,7 @@
 import { Pressable, Animated, useAnimatedValue, Text, Alert } from 'react-native';
 import React, { useEffect } from 'react';
 import styles from '../styles/style';
-import '@/global'
+import '@/global';
 
 const GameTile = ({ src, grid }) => {
     const size = grid < 8 ? styles.tileBig : grid < 12 ? styles.tileMedium : styles.tileSmall;
@@ -11,6 +11,8 @@ const GameTile = ({ src, grid }) => {
     useEffect(() => {
         previousTile = undefined;
         counter = 0;
+        win = undefined;
+        lose = undefined;
         Animated.sequence([
             Animated.timing(rotateAnim, {
                 toValue: 0,
@@ -77,11 +79,11 @@ const GameTile = ({ src, grid }) => {
             case src:
                 previousTile = undefined;
                 if(counter == grid) {
-                    Alert.alert('You Won');
+                    win = true;
                 }
                 break;
             default:
-                Alert.alert('Game Over');
+                lose = true;
                 break;
         }
     }
@@ -90,7 +92,6 @@ const GameTile = ({ src, grid }) => {
         <Pressable onPress={() => handlePress(src)}>
             <Animated.Image source={require('@/assets/images/tile.png')} style={[styles.image, size, { transform: [{ scaleX: rotateAnim }, { perspective: 1000 },], }]} />
             <Animated.Image source={src} style={[styles.image, size, styles.tileIn, { transform: [{ scaleX: rotateAnim }, { perspective: 1000 },], zIndex: zIndexAnim, }]} />
-            <Text>{previousTile}</Text>
         </Pressable>
     );
 }
