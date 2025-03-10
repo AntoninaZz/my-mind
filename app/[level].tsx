@@ -1,38 +1,17 @@
 import { SafeAreaView, ImageBackground, TouchableOpacity, Image, Text, Animated, useAnimatedValue } from "react-native";
 import { Stack, useRouter, useLocalSearchParams } from 'expo-router';
 import { LinearGradient } from 'expo-linear-gradient';
-import React, { useState } from 'react';
+import React from 'react';
 import styles from '../styles/style';
 
 import GameTile from '@/components/gameTite';
 import { GAME_IMAGES } from "@/constants/images";
 import { IMAGE_BACKGROUND } from "@/constants/images";
-import { makeGame } from '@/makeGame'
+import { makeGame } from '@/makeGame';
 
 const LevelScreen = () => {
     const params = useLocalSearchParams();
     const router = useRouter();
-    const rotateAnim = useAnimatedValue(1); //scaleX
-    const zIndexAnim = useAnimatedValue(-1); //zIndex
-    const toggleAnimation = () => {
-        Animated.sequence([
-            Animated.timing(rotateAnim, {
-                toValue: 0,
-                duration: 250,
-                useNativeDriver: true,
-            }),
-            Animated.timing(zIndexAnim, {
-                toValue: 0,
-                duration: 0,
-                useNativeDriver: true,
-            }),
-            Animated.timing(rotateAnim, {
-                toValue: 1,
-                duration: 250,
-                useNativeDriver: true,
-            })
-        ]).start();
-    }
 
     return (
         <SafeAreaView style={styles.container}>
