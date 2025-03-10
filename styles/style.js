@@ -75,6 +75,16 @@ const styles = StyleSheet.create({
         height: 150,
         margin: 7.5,
     },
+    tileMedium: {
+        width: 120,
+        height: 120,
+        margin: 7.5,
+    },
+    tileSmall: {
+        width: 102.67,
+        height: 102.67,
+        margin: 5,
+    },
     tileIn: {
         position: 'absolute',
         left: 0,
