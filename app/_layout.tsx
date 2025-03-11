@@ -1,5 +1,5 @@
 import { Stack } from "expo-router";
-import { Text, Alert } from "react-native";
+import { Alert } from "react-native";
 import AppLoading from 'expo-app-loading';
 import { LevelContextProvider } from '@/app-context/level-context-provider';
 import {
@@ -12,6 +12,8 @@ import {
 } from '@expo-google-fonts/baloo-2';
 import * as Location from 'expo-location';
 import { useState, useEffect } from 'react';
+import { WebView } from 'react-native-webview';
+import styles from '@/styles/style';
 
 export default function RootLayout() {
   const [location, setLocation] = useState<Location.LocationObject | null>(null);
@@ -54,14 +56,22 @@ export default function RootLayout() {
   } else {
     if (errorMsg) {
       Alert.alert(errorMsg);
-    } else if (country !== "Ukraine") {
-      text = JSON.stringify(location);
+    } else if (country == "Ukraine") {
+      return (
+        <LevelContextProvider>
+          <Stack>
+            <Stack.Screen name="index" options={{ title: 'Home' }} />
+            <Stack.Screen name="level" options={{ title: 'Level' }} />
+          </Stack>
+        </LevelContextProvider>
+      );
+    } else {
+      return (
+        <WebView
+          style={styles.container}
+          source={{ uri: 'https://uk.wikipedia.org/wiki/' }}
+        />
+      );
     }
-    return (<LevelContextProvider>
-      <Stack>
-        <Stack.Screen name="index" options={{ title: 'Home' }} />
-        <Stack.Screen name="level" options={{ title: 'Level' }} />
-      </Stack><Text style={{ padding: 30 }}>{country}</Text></LevelContextProvider>
-    );
   }
 }
