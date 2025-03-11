@@ -1,7 +1,9 @@
 import { Stack } from "expo-router";
 import { Alert, SafeAreaView, Image } from "react-native";
 import { LinearGradient } from 'expo-linear-gradient';
-import { LevelContextProvider } from '@/app-context/level-context-provider';
+import * as Location from 'expo-location';
+import { useState, useEffect } from 'react';
+import { WebView } from 'react-native-webview';
 import {
   useFonts,
   Baloo2_400Regular,
@@ -10,9 +12,7 @@ import {
   Baloo2_700Bold,
   Baloo2_800ExtraBold,
 } from '@expo-google-fonts/baloo-2';
-import * as Location from 'expo-location';
-import { useState, useEffect } from 'react';
-import { WebView } from 'react-native-webview';
+import { LevelContextProvider } from '@/app-context/level-context-provider';
 import styles from '@/styles/style';
 
 export default function RootLayout() {
