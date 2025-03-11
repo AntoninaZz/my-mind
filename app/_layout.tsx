@@ -1,6 +1,6 @@
 import { Stack } from "expo-router";
-import { Alert } from "react-native";
-import AppLoading from 'expo-app-loading';
+import { Alert, SafeAreaView, Image } from "react-native";
+import { LinearGradient } from 'expo-linear-gradient';
 import { LevelContextProvider } from '@/app-context/level-context-provider';
 import {
   useFonts,
@@ -16,9 +16,9 @@ import { WebView } from 'react-native-webview';
 import styles from '@/styles/style';
 
 export default function RootLayout() {
-  const [location, setLocation] = useState<Location.LocationObject | null>(null);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [country, setCountry] = useState<string | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
   let [fontsLoaded] = useFonts({
     Baloo2_400Regular,
     Baloo2_500Medium,
@@ -27,32 +27,40 @@ export default function RootLayout() {
     Baloo2_800ExtraBold,
   });
 
-  async function getCurrentLocation() {
-
+  async function getCountry() {
+    setLoading(true);
     let { status } = await Location.requestForegroundPermissionsAsync();
     if (status !== 'granted') {
       setErrorMsg('Permission to access location was denied');
       return;
     }
 
-    let location = await Location.getCurrentPositionAsync({});
-    setLocation(location);
-  }
-
-  async function getCountry(latitude, longitude) {
-    await fetch(`http://api.geonames.org/countryCodeJSON?lat=${latitude}&lng=${longitude}&username=aazdebska`)
+    await Location.getCurrentPositionAsync({}).then((res) => {
+      return fetch(`http://api.geonames.org/countryCodeJSON?lat=${res.coords.latitude}&lng=${res.coords.longitude}&username=aazdebska`);
+    })
       .then((response) => response.json())
       .then((json) => setCountry(json.countryName))
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err))
+      .finally(() => setLoading(false));
   }
 
   useEffect(() => {
-    getCurrentLocation();
-    getCountry(location?.coords.latitude, location?.coords.longitude);
+    getCountry();
   }, []);
 
-  if (!fontsLoaded) {
-    return <AppLoading />;
+  if (!fontsLoaded || loading) {
+    return (
+      <SafeAreaView style={{ flex: 1 }}>
+        <LinearGradient
+          style={styles.container}
+          colors={['#43BCF0', '#541896', "#711280"]}
+          start={{ x: 1.8, y: 0 }}
+          end={{ x: 1, y: 1 }}
+          locations={[0.1, 0.56, 0.8]}>
+          <Image source={require('../assets/images/icon.png')} style={styles.img} />
+        </LinearGradient>
+      </SafeAreaView>
+    );
   } else {
     if (errorMsg) {
       Alert.alert(errorMsg);

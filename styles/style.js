@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
         marginLeft: -20,
     },
     buttonsContainer: {
-        flexDirection:'row',
+        flexDirection: 'row',
         justifyContent: 'space-between',
         paddingHorizontal: 60,
     },
@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
     },
     scoreText: {
         fontSize: 18,
-    }
+    },
 });
 
 export default styles;
