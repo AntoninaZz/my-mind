@@ -7,8 +7,8 @@ import styles from '../styles/style';
 import GameTile from '@/components/gameTite';
 import { GAME_IMAGES } from "@/constants/images";
 import { IMAGE_BACKGROUND } from "@/constants/images";
-import { makeGame } from '@/makeGame';
-import '@/global';
+import { makeGame } from '@/scripts/makeGame';
+import '@/constants/global';
 import { LevelContext, AppConsumer, startResult } from '@/app-context/level-context';
 
 const LevelScreen = () => {
@@ -54,7 +54,7 @@ const LevelScreen = () => {
                         headerBackTitle: '',
                     }} />
                     <ImageBackground source={IMAGE_BACKGROUND[params.level]} resizeMode="cover" style={[styles.container, styles.levels]} >
-                        {makeGame(GAME_IMAGES[params.level]).map((img, i) => (<GameTile src={img} key={i} grid={GAME_IMAGES[params.level].length * 2} />))}
+                        {makeGame(GAME_IMAGES[params.level]).map((img, i) => (<GameTile src={img} key={i} grid={GAME_IMAGES[params.level].length * 2} level={params.level}/>))}
                         <View style={[styles.transparent, { display: gameResult.win === true || gameResult.lose === true ? 'flex' : 'none', }]}>
                             <View style={styles.popup}>
                                 <LinearGradient

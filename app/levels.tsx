@@ -1,13 +1,17 @@
 import { Text, SafeAreaView, Image, TouchableOpacity, ImageBackground } from 'react-native';
 import { Stack, useRouter } from 'expo-router';
 import { LinearGradient } from 'expo-linear-gradient';
+import { useState, useEffect } from 'react';
 import styles from '../styles/style';
-
+import { getData } from '@/scripts/AsyncStorage';
 import { LEVEL_IMAGES } from '@/constants/images';
 
 export default function LevelsScreen() {
   const router = useRouter();
-
+  const [storedLevel, setStoredLevel] = useState(0);
+  useEffect(() => {
+    getData().then((res) => { setStoredLevel(res || 0); });
+  }, []);
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <Stack.Screen options={{
@@ -36,7 +40,7 @@ export default function LevelsScreen() {
       }} />
       <ImageBackground source={require('@/assets/images/bg.png')} resizeMode="cover" style={[styles.container, styles.levels]} >
         {LEVEL_IMAGES.map((level, i) => (
-          <TouchableOpacity key={i} onPress={() => router.push({ pathname: '/[level]', params: { level: i }})} >
+          <TouchableOpacity key={i} onPress={() => router.push({ pathname: '/[level]', params: { level: i } })} disabled={i > storedLevel} style={i > storedLevel ? { filter: 'grayscale(100%)' } : {}} >
             <Image source={level} style={[styles.image, styles.tile]} />
           </TouchableOpacity>
         ))}
