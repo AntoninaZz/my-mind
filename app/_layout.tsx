@@ -68,8 +68,10 @@ export default function RootLayout() {
       return (
         <LevelContextProvider>
           <Stack>
-            <Stack.Screen name="index" options={{ title: 'Home' }} />
-            <Stack.Screen name="level" options={{ title: 'Level' }} />
+            <Stack.Screen name="index" options={{ title: '' }} />
+            <Stack.Screen name="levels" options={{ title: '' }} />
+            <Stack.Screen name="info" options={{ title: '' }} />
+            <Stack.Screen name="[level]" options={{ title: '' }} />
           </Stack>
         </LevelContextProvider>
       );
