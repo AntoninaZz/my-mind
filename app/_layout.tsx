@@ -15,6 +15,15 @@ import {
 import { LevelContextProvider } from '@/app-context/level-context-provider';
 import styles from '@/styles/style';
 
+import { LogLevel, OneSignal } from 'react-native-onesignal';
+import Constants from "expo-constants";
+
+OneSignal.Debug.setLogLevel(LogLevel.Verbose);
+OneSignal.initialize(Constants.expoConfig.extra.oneSignalAppId);
+
+// Also need enable notifications to complete OneSignal setup
+OneSignal.Notifications.requestPermission(true);
+
 export default function RootLayout() {
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [country, setCountry] = useState<string | null>(null);
