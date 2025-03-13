@@ -28,7 +28,7 @@ import appsFlyer from 'react-native-appsflyer';
 
 appsFlyer.initSdk(
   {
-    devKey: 'HZuWnKZtzRCaFebrfk2Nrn',
+    devKey: 'K2***********99', //add your key to work
     isDebug: true,
     appId: '41*****44',
     onInstallConversionDataListener: true, //Optional

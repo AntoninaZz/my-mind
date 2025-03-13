@@ -59,7 +59,7 @@
       "baseUrl": "/my-mind"
     },
     "extra": {
-      "oneSignalAppId": "ff003e88-9fc0-42da-b931-f403305d20e0"
+      "oneSignalAppId": "<YOUR APP ID HERE>"
     }
   }
 }
