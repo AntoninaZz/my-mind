@@ -73,10 +73,10 @@ const LevelScreen = () => {
                                 </LinearGradient>
                             </View>
                             <View style={styles.buttonsContainer}>
-                                <TouchableOpacity onPressOut={() => router.navigate({ pathname: `/` })}>
+                                <TouchableOpacity onPressOut={() => router.navigate({ pathname: `/levels` })}>
                                     <Image source={require('../assets/images/home.png')} style={[styles.infoIcon, styles.bannerIcon]} />
                                 </TouchableOpacity>
-                                <TouchableOpacity onPressOut={() => router.replace({ pathname: '/[level]', params: { level: gameResult.win ? parseInt(params.level) + 1 : params.level } })}>
+                                <TouchableOpacity onPressOut={() => router.replace({ pathname: '/[level]', params: { level: gameResult.win ? (parseInt(params.level) + 1) < 8 ? parseInt(params.level) + 1 : 'levels' : params.level } })}>
                                     <Image source={gameResult.win ? require('../assets/images/next.png') : require('../assets/images/back.png')} style={[styles.infoIcon, styles.bannerIcon]} />
                                 </TouchableOpacity>
                             </View>
