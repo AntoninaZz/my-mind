@@ -43,6 +43,8 @@ appsFlyer.initSdk(
   }
 );
 
+import app from '@/scripts/firebaseConfig';
+
 export default function RootLayout() {
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [country, setCountry] = useState<string | null>(null);
