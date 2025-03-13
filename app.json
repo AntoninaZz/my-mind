@@ -48,6 +48,10 @@
         {
           "mode": "development"
         }
+      ],
+      [
+        "react-native-appsflyer",
+        {}
       ]
     ],
     "experiments": {

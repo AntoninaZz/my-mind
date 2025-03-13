@@ -24,6 +24,25 @@ OneSignal.initialize(Constants.expoConfig.extra.oneSignalAppId);
 // Also need enable notifications to complete OneSignal setup
 OneSignal.Notifications.requestPermission(true);
 
+import appsFlyer from 'react-native-appsflyer';
+
+appsFlyer.initSdk(
+  {
+    devKey: 'HZuWnKZtzRCaFebrfk2Nrn',
+    isDebug: true,
+    appId: '41*****44',
+    onInstallConversionDataListener: true, //Optional
+    onDeepLinkListener: true, //Optional
+    timeToWaitForATTUserAuthorization: 10 //for iOS 14.5
+  },
+  (result) => {
+    console.log(result);
+  },
+  (error) => {
+    console.error(error);
+  }
+);
+
 export default function RootLayout() {
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [country, setCountry] = useState<string | null>(null);
