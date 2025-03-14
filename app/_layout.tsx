@@ -66,10 +66,10 @@ export default function RootLayout() {
     }
 
     await Location.getCurrentPositionAsync({}).then((res) => {
-      return fetch(`http://api.geonames.org/countryCodeJSON?lat=${res.coords.latitude}&lng=${res.coords.longitude}&username=aazdebska`);
+      return fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${res.coords.latitude}&lon=${res.coords.longitude}&appid=b4aa97b78aa3910d7b9c42ba407fa424`);
     })
       .then((response) => response.json())
-      .then((json) => setCountry(json.countryName))
+      .then((json) => setCountry(json.sys.country))
       .catch((err) => console.log(err))
       .finally(() => setLoading(false));
   }
@@ -94,7 +94,7 @@ export default function RootLayout() {
   } else {
     if (errorMsg) {
       Alert.alert(errorMsg);
-    } else if (country == "Ukraine") {
+    } else if (country == "UA") {
       return (
         <LevelContextProvider>
           <Stack>
