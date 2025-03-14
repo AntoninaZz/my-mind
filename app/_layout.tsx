@@ -66,7 +66,7 @@ export default function RootLayout() {
     }
 
     await Location.getCurrentPositionAsync({}).then((res) => {
-      return fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${res.coords.latitude}&lon=${res.coords.longitude}&appid=b4aa97b78aa3910d7b9c42ba407fa424`);
+      return fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${res.coords.latitude}&lon=${res.coords.longitude}&appid={appid}`);
     })
       .then((response) => response.json())
       .then((json) => setCountry(json.sys.country))
