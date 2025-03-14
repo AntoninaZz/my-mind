@@ -1,50 +1,27 @@
-# Welcome to your Expo app 👋
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+# My Mind Memory Game
 
-## Get started
+## Project Overview
+"My Mind" is a memory training mobile app built with React Native and Expo. The app includes a memory game where users must remember and match pairs of cards. Additionally, the app integrates with SDKs such as Appsflyer, Firebase, and OneSignal for analytics, push notifications, and tracking.
+  
+- **Data Storage**: Utilizes `AsyncStorage` to store user data on the device.
 
-1. Install dependencies
+- **Geolocation-Based Content Display**:
+  - If the user is in **Ukraine**, the main game content is displayed.
+  - If the user is outside of **Ukraine**, a webview with Wikipedia is shown.
 
-   ```bash
-   npm install
-   ```
+- **Game Logic**:
+  - A memory game where users are shown cards briefly, and they must remember their positions to match pairs.
+  - The game is passed when all card pairs are matched correctly.
 
-2. Start the app
+## Technologies Used
+- **React Native**: Framework for building the mobile app.
+- **Expo**: Development tool for React Native apps.
+- **Appsflyer SDK**: For app tracking.
+- **Firebase SDK**: For backend services and analytics.
+- **OneSignal SDK**: For push notifications.
+- **AsyncStorage**: To persist data locally on the device.
+- **React Navigation**: For screen navigation.
 
-   ```bash
-    npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## Important Notes:
+- The project includes placeholders for Appsflyer, Firebase, and OneSignal SDKs. Replace the fake keys and IDs with your actual credentials for production use.
